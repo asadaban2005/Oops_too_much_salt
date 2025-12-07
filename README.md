@@ -13,6 +13,7 @@
 * Delete recipes
 * Search recipes by name or ingredients
 * Styled, professional GUI for better user experience
+* OOP-based layered architecture
 * JDBC integration with MySQL for persistent storage
 
 ---
@@ -20,27 +21,43 @@
 ## Project Structure
 
 ```
-OopstoomuchSalt/
-│-- README.md
-└-- src/
-    ├-- db/
-    │   └-- DatabaseConnection.java
-    ├-- gui/
-    │   ├-- MainWindow.java
-    │   └-- RecipeForm.java
-    ├-- models/
-    │   ├-- Recipe.java
-    │   └-- User.java
-    └-- services/
-        ├-- RecipeService.java
-        └-- UserService.java
+OopstoomuchSalt
+ ┣ README.md
+ ┗ src
+   ┣ db
+   │ ┣ DatabaseConnection.java
+   │ ┗ DBBase.java
+   ┣ models
+   │ ┣ Recipe.java
+   │ ┣ VegRecipe.java
+   │ ┣ NonVegRecipe.java
+   │ ┗ User.java
+   ┣ services
+   │ ┣ IRecipeService.java
+   │ ┣ RecipeService.java
+   │ ┗ UserService.java
+   ┣ exceptions
+   │ ┣ RecipeException.java
+   │ ┗ RecipeRuntimeException.java
+   ┗ gui
+     ┣ MainWindow.java
+     ┗ RecipeForm.java
+
 ```
+🧠 OOP Concepts Used
+Concept	Where Used
+Encapsulation	models class fields
+Inheritance	VegRecipe, NonVegRecipe extend Recipe
+Polymorphism	overridden methods
+Abstraction	IRecipeService interface
+Exceptions	custom exceptions package
+MVC Layer	gui / services / models / db
 
 ---
 
 ## Requirements
 
-* Java JDK 8 or above
+* Java JDK 17+
 * MySQL Server
 * IDE or editor (VS Code, IntelliJ, Eclipse) or terminal for compiling and running
 * No external libraries are required
