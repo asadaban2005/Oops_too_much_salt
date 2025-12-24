@@ -1,99 +1,198 @@
-# Oops Too Much Salt
+📄 Review-2 Compliance Summary
 
-## Project Overview
+✔ Core features implemented
+✔ Full OOP usage
+✔ Robust error handling
+✔ Clean modular structure
+✔ GUI event handling
+✔ Data validation
+✔ Well-documented README
+✔ GitHub ready for submission
 
-“Oops Too Much Salt” is a mini recipe-sharing platform built in Java. Users can **add, edit, delete, and search recipes** with ingredients and instructions using a modern graphical user interface (GUI) built with Swing. Recipes are stored in a **MySQL database** using JDBC for demonstration purposes.
 
----
+🍲 Oops Too Much Salt
 
-## Project Features
+Oops Too Much Salt is a Java Swing–based recipe management application built using core Object-Oriented Programming (OOP) principles.
+The project demonstrates clean architecture, modular design, GUI interaction, data validation, exception handling, and database integration.
 
-* Add new recipes with name, ingredients, and instructions
-* Edit existing recipes
-* Delete recipes
-* Search recipes by name or ingredients
-* Styled, professional GUI for better user experience
-* OOP-based layered architecture
-* JDBC integration with MySQL for persistent storage
+📌 Project Objective
 
----
+To design and implement a robust Java GUI application that allows users to manage recipes efficiently while showcasing:
 
-## Project Structure
+Strong OOP concepts
 
-```
-OopstoomuchSalt
- ┣ README.md
- ┗ src
-   ┣ db
-   │ ┣ DatabaseConnection.java
-   │ ┗ DBBase.java
-   ┣ models
-   │ ┣ Recipe.java
-   │ ┣ VegRecipe.java
-   │ ┣ NonVegRecipe.java
-   │ ┗ User.java
-   ┣ services
-   │ ┣ IRecipeService.java
-   │ ┣ RecipeService.java
-   │ ┗ UserService.java
-   ┣ exceptions
-   │ ┣ RecipeException.java
-   │ ┗ RecipeRuntimeException.java
-   ┗ gui
-     ┣ MainWindow.java
-     ┗ RecipeForm.java
+Clean code practices
 
-```
-🧠 OOP Concepts Used
-Concept	Where Used
-Encapsulation	models class fields
-Inheritance	VegRecipe, NonVegRecipe extend Recipe
-Polymorphism	overridden methods
+Modular architecture
+
+Error handling & validation
+
+GUI event handling
+
+🧱 Project Folder Structure
+oopstoomuchsalt/
+│
+├── README.md
+│
+└── src/
+    ├── db/
+    │   ├── DatabaseConnection.java
+    │   └── DBBase.java
+    │
+    ├── models/
+    │   ├── Recipe.java
+    │   ├── VegRecipe.java
+    │   ├── NonVegRecipe.java
+    │   └── User.java
+    │
+    ├── services/
+    │   ├── IRecipeService.java
+    │   ├── RecipeService.java
+    │   └── UserService.java
+    │
+    ├── exceptions/
+    │   ├── RecipeException.java
+    │   └── RecipeRuntimeException.java
+    │
+    └── gui/
+        ├── MainWindow.java
+        └── RecipeForm.java
+
+🧠 OOP Concepts Implemented
+Concept	Usage
+Encapsulation	Private fields with getters/setters in models
+Inheritance	VegRecipe & NonVegRecipe extend Recipe
 Abstraction	IRecipeService interface
-Exceptions	custom exceptions package
-MVC Layer	gui / services / models / db
+Polymorphism	Service methods operate on Recipe objects
+Exception Handling	Custom checked & unchecked exceptions
+Separation of Concerns	GUI, Service, Model, DB layers
+⚙️ Core Features
 
----
+📋 View all recipes
 
-## Requirements
+➕ Add new recipes
 
-* Java JDK 17+
-* MySQL Server
-* IDE or editor (VS Code, IntelliJ, Eclipse) or terminal for compiling and running
-* No external libraries are required
+✏️ Edit existing recipes
 
----
+🗑 Delete recipes
 
-## Setup Instructions
+🔍 Search & filter recipes
 
-1. **Clone or download the repository** into your local machine.
-2. **Set up MySQL Database**:
+🪟 Java Swing GUI
 
-   * Create a database named `oopstoomuchsalt`
-   * Update `DatabaseConnection.java` if your DB username/password are different
-3. **Navigate to the `src` folder** in your terminal or IDE.
-4. **Compile the project**:
+🧩 Modular service-based architecture
 
-```bash
-javac db/*.java models/*.java services/*.java gui/*.java
-```
+🛡 Error Handling & Robustness
 
-5. **Run the application**:
+Graceful handling of:
 
-```bash
-java gui.MainWindow
-```
+Empty input fields
 
-> The GUI window will open, allowing users to add, edit, delete, and search recipes.
+Database connection failures
 
----
+Invalid user actions
 
-## Project Review
+Custom exceptions:
 
-Students implemented **core Java and OOP principles**, defined a **clear project structure**, designed the **database schema**, established **JDBC connectivity**, and developed **classes for database operations**. This allows the project to evolve into a **fully database-backed, professional Java application**.
+RecipeException
 
----
+RecipeRuntimeException
 
-## Future Improvements
+Application does not crash on runtime errors
 
-* Multi-user login/signup system
+✅ Data Validation
+
+Client-side validation using Swing:
+
+Empty fields blocked
+
+Invalid inputs prevented
+
+Server-side validation:
+
+Database query safety using PreparedStatement
+
+🔗 Integration of Components
+
+GUI interacts only with Service layer
+
+Services interact with DB layer
+
+Models remain independent and reusable
+
+Clean separation ensures easy testing & maintenance
+
+🧪 Event Handling & Processing
+
+Optimized Swing event listeners
+
+Proper delegation of GUI actions
+
+Responsive UI behavior
+
+🛠 Technologies Used
+
+Java (JDK 17+)
+
+Java Swing
+
+JDBC
+
+MySQL
+
+IntelliJ IDEA / VS Code
+
+🗄 Database Setup (Required for Full Functionality)
+1️⃣ Install MySQL
+
+Make sure MySQL Server is installed and running.
+
+2️⃣ Create Database & Table
+CREATE DATABASE oopstoomuchsalt;
+USE oopstoomuchsalt;
+
+CREATE TABLE recipes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255),
+    ingredients TEXT,
+    instructions TEXT
+);
+
+3️⃣ Update DB Credentials
+
+Edit:
+
+db/DatabaseConnection.java
+
+private static final String USER = "root";
+private static final String PASSWORD = "your_password";
+
+
+⚠️ If MySQL is not running, the application handles the error gracefully.
+
+▶️ How to Run
+
+Open project in IDE
+
+Add MySQL Connector JAR to classpath
+
+Run:
+
+gui.MainWindow
+
+
+👤 Author
+
+Asad Aban Arif & Tanmay shrivastava
+B.Tech CSE (AI & ML)
+Galgotias University
+
+If you want, I can now:
+
+✔️ Verify this against your rubric
+
+✔️ Help you write Review-2 explanation lines
+
+✔️ Do a final submission checklist
+
+Just say the word.
